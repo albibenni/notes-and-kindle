@@ -3,13 +3,28 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.ts",
+  "type": "module",
   "scripts": {
+    "note": "node --experimental-strip-types ./index.ts",
+    "link-ts": "tsc && pnpm link --global",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
-    "note": "node --experimental-strip-types ./index.ts"
+    "note": "./dist/index.js"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.1.0",
+    "@types/eslint": "^9.6.0",
+    "@types/node": "^22.8.1",
+    "@typescript-eslint/parser": "^8.11.0",
+    "eslint": "^9.13.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.3.3",
+    "globals": "^15.11.0",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.11.0"
+  }
 }
