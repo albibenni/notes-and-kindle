@@ -8,7 +8,8 @@
     "note": "node --experimental-strip-types ./index.ts",
     "rm-dist": "rm -rf ./dist",
     "link-ts": "pnpm run rm-dist && tsc && pnpm link --global",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest --reporter=basic --disable-console-intercept",
+    "test:env": "NODE_ENV=local vitest --reporter=basic --disable-console-intercept"
   },
   "bin": {
     "note": "./dist/index.js"
