@@ -6,7 +6,8 @@
   "type": "module",
   "scripts": {
     "note": "node --experimental-strip-types ./index.ts",
-    "link-ts": "tsc && pnpm link --global",
+    "rm-dist": "rm -rf ./dist",
+    "link-ts": "pnpm run rm-dist && tsc && pnpm link --global",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "bin": {
