@@ -5,7 +5,7 @@
   "main": "index.ts",
   "type": "module",
   "scripts": {
-    "note": "node --experimental-strip-types ./index.ts",
+    "note": "node --experimental-strip-types ./src/index.ts",
     "rm-dist": "rm -rf ./dist",
     "link-ts": "pnpm run rm-dist && tsc && pnpm link --global",
     "test": "vitest --reporter=basic --disable-console-intercept",
