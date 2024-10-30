@@ -1,5 +1,5 @@
 import type { Note } from "src/types/type.js";
-import { getAllNotes, newNote } from "../database/note.js";
+import { findNotes, getAllNotes, newNote } from "../database/note.js";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
@@ -56,7 +56,9 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      console.log(argv.note);
+      if (!argv.filter) return;
+      const matches = await findNotes(argv.filter);
+      listNotes(matches);
     },
   )
   .command(
