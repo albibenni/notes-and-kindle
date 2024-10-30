@@ -1,5 +1,11 @@
 import type { Note } from "src/types/type.js";
-import { findNotes, getAllNotes, newNote } from "../database/note.js";
+import {
+  findNotes,
+  getAllNotes,
+  newNote,
+  removeAllNotes,
+  removeNote,
+} from "../database/note.js";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 
@@ -71,7 +77,13 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      console.log(argv.note);
+      if (!argv.id) return;
+      const id = await removeNote(argv.id);
+      if (id) {
+        console.log("Note removed: ", id);
+      } else {
+        console.log("Note not found");
+      }
     },
   )
   .command(
@@ -92,8 +104,9 @@ yargs(hideBin(process.argv))
     "clean",
     "remove all notes",
     () => {},
-    async (argv) => {
-      console.log(argv.note);
+    async () => {
+      await removeAllNotes();
+      console.log("All notes removed");
     },
   )
   .demandCommand(1)
