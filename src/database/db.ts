@@ -1,7 +1,9 @@
 import fs from "node:fs/promises";
 import type { DB, Note } from "../types/type.js";
 
-const DB_PATH = "/Users/benni/benni-projects/ObsidianVault/QuickNotes/db.json";
+const DB_PATH =
+  process.env.DB_PATH ||
+  "/Users/benni/benni-projects/ObsidianVault/QuickNotes/db.json";
 
 export const getDB = async () => {
   const db = await fs.readFile(DB_PATH, "utf8");
