@@ -73,6 +73,8 @@ export default [
       ".rollup.cache",
       "tsconfig.tsbuildinfo",
       "vite.config.ts",
+      "jest.config.ts",
+      "eslint.config.js",
       "*.spec.tsx",
       "*.spec.ts",
       ".netlify",
