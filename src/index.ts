@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import "./command.js";
+import "./commands/command.js";
 // import type { Note } from "./types/type.js";
 
 console.log("hello note");
