@@ -1,4 +1,3 @@
-import type { Note } from "src/types/type.js";
 import {
   findNotes,
   getAllNotes,
@@ -8,8 +7,9 @@ import {
 } from "../database/note.js";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
+import type { Note } from "../types/type.ts";
 
-const listNotes = (notes: Note[]) => {
+export const listNotes = (notes: Note[]) => {
   notes.forEach((note) => {
     console.log("\n");
     console.log("id: ", note.id);
