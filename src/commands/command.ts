@@ -8,6 +8,7 @@ import {
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import type { Note } from "../types/type.ts";
+import { start } from "../server.js";
 
 export const listNotes = (notes: Note[]) => {
   notes.forEach((note) => {
@@ -97,7 +98,8 @@ yargs(hideBin(process.argv))
       });
     },
     async (argv) => {
-      console.log(argv.note);
+      const notes = await getAllNotes();
+      start(notes, argv.port);
     },
   )
   .command(
