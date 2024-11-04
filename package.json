@@ -6,12 +6,15 @@
   "type": "module",
   "scripts": {
     "note": "node --experimental-strip-types ./src/index.ts",
+    "kindle": "node --experimental-strip-types ./src/prettify-kindle-notes.ts",
     "rm-dist": "rm -rf ./dist",
     "link-ts": "pnpm run rm-dist && tsc && pnpm link --global",
     "test2": "node --no-warnings --experimental-vm-modules ./node_modules/.bin/jest",
     "test": "NODE_OPTIONS=--experimental-vm-modules pnpm exec jest --config ./jest.config.ts",
     "test:command": "NODE_OPTIONS=--experimental-vm-modules pnpm exec jest -t 'command' --config ./jest.config.ts",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "indent:check": "prettier . --check",
+    "indent:write": "prettier . --write"
   },
   "bin": {
     "note": "./dist/index.js"

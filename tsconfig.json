@@ -7,18 +7,13 @@
     "allowSyntheticDefaultImports": true,
     "outDir": "dist",
 
+    "noImplicitOverride": true,
+
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
     "types": ["jest", "node", "@types/jest"],
     "sourceMap": true
   },
-  // "ts-node": {
-  //   "transpileOnly": true,
-  //   "files": true,
-  //   "compilerOptions": {
-  //     "rootDir": "."
-  //   }
-  // },
   "ts-node": {
     "esm": true,
     "experimentalSpecifierResolution": "node"
