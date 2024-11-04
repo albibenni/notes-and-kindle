@@ -5,15 +5,18 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const obsidianPath = process.env.OBSIDIAN_PATH + "Development/Books" || "";
+let bookTitle = "";
 /**
  * Asynchronously reads a Kindle notes file, extracts the notes, and either prints them to the console or writes them to an output file.
  *
  * @param path - The path to the Kindle notes file.
+ * @param bookT - The title of the book. Default is an empty string.
  * @param outputFile - A boolean indicating whether to write the notes to an output file. If false, the notes are printed to the console. Default is false.
  * @returns A promise that resolves to the notes as a single string if `outputFile` is false, otherwise void.
  */
 export async function prettifyKindleNotes(
   path: PathLike,
+  bookT: string,
   outputFile: boolean = false,
 ) {
   // Read the file
@@ -23,12 +26,14 @@ export async function prettifyKindleNotes(
   const notes: string[] = [];
   for (let i = 0; i < allLines.length; i++) {
     if (allLines[i].startsWith("==========")) {
-      notes.push(allLines[i - 1]);
-      notes.push(" ");
-      notes.push("---");
+      if (allLines[i - 4].toLowerCase().startsWith(bookT.toLowerCase())) {
+        bookTitle = allLines[i - 4];
+        notes.push(allLines[i - 1]);
+        notes.push(" ");
+        notes.push("---");
+      }
     }
   }
-  console.log(path.toString().endsWith(".txt"));
   if (outputFile) {
     const regex = /\/(?:.(?!\/))+$/gim;
     const name = path.toString().match(regex)![0]!.replace("/", "");
@@ -53,30 +58,34 @@ export async function prettifyKindleNotes(
  * @requires gnu sed -- if mac install:
  *           brew install gnu-sed
  */
-export async function storeInObsidian(path: PathLike) {
-  const notes = await prettifyKindleNotes(path);
+export async function storeInObsidian(path: PathLike, bookT: string) {
+  const notes = await prettifyKindleNotes(path, bookT, false);
 
   if (!notes) return;
   await fs.writeFile("temp.md", notes);
-  const regex = /\/(?:.(?!\/))+$/gim;
-  const name = path
-    .toString()
-    .match(regex)![0]!
-    .replace("/", "")
-    .replace(".txt", "");
+  // const regex = /\/(?:.(?!\/))+$/gim;
+  // const name = path
+  //   .toString()
+  //   .match(regex)![0]!
+  //   .replace("/", "")
+  //   .replace(".txt", "");
   try {
     //const dirPresent = await fs.readdir(`${obsidianPath}/${name}/`);
     const dirPresent = await fs.readdir(`${obsidianPath}`);
+    const newBookTitle = bookTitle.replace(bookT, `${bookT} |`);
     const nameMod =
-      name.charAt(0).toUpperCase() + name.slice(1).replaceAll("-", " ");
-    if (dirPresent.find((dir) => dir === nameMod)) {
+      newBookTitle.charAt(0).toUpperCase() +
+      newBookTitle.slice(1).replaceAll("-", " ");
+    const dirName =
+      bookT.charAt(0).toUpperCase() + bookT.slice(1).replaceAll("-", " ");
+    if (dirPresent.find((dir) => dir === dirName)) {
       throw new Error("Directory already exists");
     } else {
-      await fs.mkdir(`${obsidianPath}/${nameMod}/`);
+      await fs.mkdir(`${obsidianPath}/${dirName}/`);
       // eslint-disable-next-line
       exec(`sed -i '1i\ # ${nameMod}' temp.md`); // prettier-ignore
 
-      await fs.rename("temp.md", `${obsidianPath}/${nameMod}/${nameMod}.md`);
+      await fs.rename("temp.md", `${obsidianPath}/${dirName}/${nameMod}.md`);
     }
   } catch (err: any) {
     console.log(err.message);
@@ -84,9 +93,11 @@ export async function storeInObsidian(path: PathLike) {
 }
 
 // prettifyKindleNotes(
-//   "/Users/benni/benni-projects/cli-node/assets/make-it-stick.txt",
-//   true,
+//   "/Users/benni/benni-projects/cli-node/assets/My Clippings.txt",
+//   "make it stick",
+//   false,
 // );
 await storeInObsidian(
-  "/Users/benni/benni-projects/cli-node/assets/make-it-stick.txt",
+  "/Users/benni/benni-projects/cli-node/assets/My Clippings.txt",
+  "make it stick",
 );
