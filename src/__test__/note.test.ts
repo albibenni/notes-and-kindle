@@ -1,24 +1,16 @@
-import { describe, jest, beforeEach, it, expect } from "@jest/globals";
+import { describe, vi, beforeEach, afterEach, it, expect } from "vitest";
+import { getAllNotes, newNote, removeNote } from "../database/note.js";
+import { getDB, insertDB, saveDB } from "../database/db.js";
+import type { DB } from "../types/type.js";
 
-jest.unstable_mockModule("../database/db.js", () => ({
-  insertDB: jest.fn(),
-  getDB: jest.fn(),
-  saveDB: jest.fn(),
-}));
-
-const { insertDB, getDB, saveDB } = await import("../database/db.js");
-const { newNote, getAllNotes, removeNote } = await import(
-  "../database/note.js"
-);
-
+vi.mock("../database/db.js");
 describe("Note functions", () => {
+  afterEach(() => {
+    vi.resetModules();
+    vi.resetAllMocks();
+  });
   beforeEach(() => {
-    //@ts-ignore
-    insertDB.mockClear();
-    //@ts-ignore
-    getDB.mockClear();
-    //@ts-ignore
-    saveDB.mockClear();
+    vi.mock("../database/db.js");
   });
 
   it("newNote inserts data and returns it", async () => {
@@ -30,8 +22,7 @@ describe("Note functions", () => {
       content: note,
       id,
     };
-    //@ts-ignore
-    insertDB.mockResolvedValue(data);
+    vi.mocked(insertDB).mockResolvedValue(data);
 
     const result = await newNote(note, tags);
     expect(result.content).toEqual(data.content);
@@ -43,11 +34,25 @@ describe("Note functions", () => {
     const db = {
       notes: ["note1", "note2", "note3"],
     };
-    //@ts-ignore
-    getDB.mockResolvedValue(db);
+    vi.mocked(getDB).mockResolvedValue(db);
 
     const result = await getAllNotes();
     expect(result).toEqual(db.notes);
+  });
+
+  it("removeNote ", async () => {
+    const notes = [
+      { id: 1, content: "note 1" },
+      { id: 2, content: "note 2" },
+      { id: 3, content: "note 3" },
+    ];
+
+    vi.mocked(saveDB).mockResolvedValue({ notes: notes } as DB);
+    vi.mocked(getDB).mockResolvedValue({ notes: notes } as DB);
+
+    const idToRemove = 3;
+    const result = await removeNote(idToRemove);
+    expect(result).toBe(idToRemove);
   });
 
   it("removeNote does nothing if id is not found", async () => {
@@ -56,8 +61,9 @@ describe("Note functions", () => {
       { id: 2, content: "note 2" },
       { id: 3, content: "note 3" },
     ];
-    //@ts-ignore
-    saveDB.mockResolvedValue(notes);
+
+    vi.mocked(saveDB).mockResolvedValue({ notes: notes } as DB);
+    vi.mocked(getDB).mockResolvedValue({ notes: notes } as DB);
 
     const idToRemove = 4;
     const result = await removeNote(idToRemove);
