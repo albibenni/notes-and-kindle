@@ -11,12 +11,8 @@
 
     "strict": true /* Enable all strict type-checking options. */,
     "skipLibCheck": true /* Skip type checking all .d.ts files. */,
-    "types": ["jest", "node", "@types/jest"],
+    "types": ["node"],
     "sourceMap": true
-  },
-  "ts-node": {
-    "esm": true,
-    "experimentalSpecifierResolution": "node"
   },
   "include": ["src/**/*", "vitest.config.ts"]
 }
