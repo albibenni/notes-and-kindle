@@ -1,24 +1,27 @@
-import { promises as fs } from "node:fs";
+import fs from "node:fs/promises";
 import { getDB } from "../database/db.js";
-import type { DB } from "../types/type.ts";
-import { jest, describe, beforeEach, it, expect } from "@jest/globals";
+import type { DB, Note } from "../types/type.js";
+import { describe, beforeEach, expect, it, vi } from "vitest";
 
-jest.mock("node:fs/promises");
+vi.mock("node:fs/promises");
 
-const mockDB: DB = { notes: [] };
-//const mockNote: Note = { id: 1, content: "Test note", tags: ["tag1", "tag2"] };
+const mockNote: Note = { id: 1, content: "Test note", tags: ["tag1", "tag2"] };
+const mockDB: DB = { notes: [mockNote] };
 
 describe("Database functions", () => {
   beforeEach(() => {
-    jest.resetModules();
-    jest.resetAllMocks();
+    vi.resetModules();
+    vi.resetAllMocks();
   });
 
   it("getDB should read and parse the database file", async () => {
-    //(fs.readFile as jest.Mock).mockResolvedValue(JSON.stringify(mockDB));
-    jest.spyOn(fs, "readFile").mockResolvedValue(JSON.stringify(mockDB));
+    const spy = vi
+      .spyOn(fs, "readFile")
+      .mockImplementation(async () => JSON.stringify(mockDB));
 
     const db = await getDB();
+
+    expect(spy).toHaveBeenCalled();
 
     expect(fs.readFile).toHaveBeenCalledWith(process.env.DB_PATH, "utf8");
     expect(db).toEqual(mockDB);
