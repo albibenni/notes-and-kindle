@@ -5,17 +5,22 @@ import {
   removeAllNotes,
   removeNote,
 } from "../database/note.js";
+import type { ArgumentsCamelCase } from "yargs";
 import yargs from "yargs";
 import { hideBin } from "yargs/helpers";
 import type { Note } from "../types/type.ts";
 import { start } from "../server.js";
 
+function isString(value: any): value is string {
+  return typeof value === "string";
+}
+
 export const listNotes = (notes: Note[]) => {
   notes.forEach((note) => {
     console.log("\n");
     console.log("id: ", note.id);
-    console.log("tags: ", note.tags.join(", ")),
-      console.log("note: ", note.content);
+    console.log("tags: ", note.tags.join(", "));
+    console.log("note: ", note.content);
   });
 };
 
@@ -30,10 +35,15 @@ yargs(hideBin(process.argv))
       });
     },
 
-    async (argv) => {
-      const tags = typeof argv.tags === "string" ? argv.tags.split(",") : [];
-      console.log(argv.tags);
-      const note = await newNote(argv.note || "", tags);
+    async (argv: ArgumentsCamelCase) => {
+      if (!isString(argv.note) || !argv.note) {
+        console.log("Please provide a note");
+        return;
+      }
+      const tags = isString(argv.tags) ? argv.tags.split(",") : [];
+      const filename = isString(argv.name) ? argv.name : Date.now().toString();
+      const content = argv.note;
+      const note = await newNote(filename, content, tags);
       console.log("Note added!", note.id);
     },
   )

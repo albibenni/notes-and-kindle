@@ -10,7 +10,7 @@ describe("env variables", () => {
     const DB_PATH = process.env.DB_PATH;
     expect(DB_PATH).toBeDefined();
     expect(DB_PATH).toBe(
-      "/Users/benni/benni-projects/SecondBrain/QuickNotes/db.json",
+      "/Users/benni/benni-projects/SecondBrain/Projects/QuickNotes/db.json",
     );
   });
 });

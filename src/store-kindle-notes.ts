@@ -82,7 +82,6 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
       throw new Error("Directory already exists");
     } else {
       await fs.mkdir(`${obsidianPath}/${dirName}/`);
-      // eslint-disable-next-line
       exec(`sed -i '1i\ # ${nameMod}' temp.md`); // prettier-ignore
 
       await fs.rename("temp.md", `${obsidianPath}/${dirName}/${nameMod}.md`);

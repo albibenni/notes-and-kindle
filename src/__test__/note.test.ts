@@ -16,15 +16,17 @@ describe("Note functions", () => {
   it("newNote inserts data and returns it", async () => {
     const note = "it note";
     const tags = ["tag1", "tag2"];
+    const name = "test";
     const id = Date.now();
     const data = {
       tags,
       content: note,
       id,
+      noteName: name,
     };
     vi.mocked(insertDB).mockResolvedValue(data);
 
-    const result = await newNote(note, tags);
+    const result = await newNote(name, note, tags);
     expect(result.content).toEqual(data.content);
     expect(result.tags).toEqual(data.tags);
     expect(result.id).toEqual(data.id);

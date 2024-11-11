@@ -1,10 +1,15 @@
 import { insertDB, getDB, saveDB } from "./db.js";
 import type { Note } from "../types/type.js";
 
-export const newNote = async (note: string, tags: string[]) => {
+export const newNote = async (
+  noteName: string,
+  note: string,
+  tags: string[],
+) => {
   const newNote: Note = {
     tags,
     content: note,
+    noteName: noteName,
     id: Date.now(),
   };
   await insertDB(newNote);
