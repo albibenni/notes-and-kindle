@@ -4,6 +4,8 @@ import fs from "node:fs/promises";
 import dotenv from "dotenv";
 dotenv.config();
 
+const basePath = import.meta.dirname;
+const clipping = `${basePath}/assets/My Clippings.txt`;
 const obsidianPath = process.env.OBSIDIAN_PATH + "Development/Books" || "";
 let bookTitle = "";
 /**
@@ -83,8 +85,14 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
     } else {
       await fs.mkdir(`${obsidianPath}/${dirName}/`);
       exec(`sed -i '1i\ # ${nameMod}' temp.md`); // prettier-ignore
-
-      await fs.rename("temp.md", `${obsidianPath}/${dirName}/${nameMod}.md`);
+      exec(
+        "pnpm run indent:write",
+        async () =>
+          await fs.rename(
+            "temp.md",
+            `${obsidianPath}/${dirName}/${nameMod}.md`,
+          ),
+      );
     }
   } catch (err: any) {
     console.log(err.message);
@@ -96,7 +104,4 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
 //   "make it stick",
 //   false,
 // );
-await storeInObsidian(
-  "/Users/benni/benni-projects/cli-node/assets/My Clippings.txt",
-  "make it stick",
-);
+await storeInObsidian(clipping, "Building a Second Brain");
