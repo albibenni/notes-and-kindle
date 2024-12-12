@@ -288,3 +288,478 @@ Building a Second Brain A Proven Method to Organize Your Digital Life and Unlock
 
 To attain knowledge, add things every day. To attain wisdom, remove things every day. —Lao Tzu, ancient Chinese philosopher
 ==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 565-573 | Added on Wednesday, 13 November 2024 22:19:36
+
+noImplicitAny controls whether variables must have known types. This code is valid when noImplicitAny is off: function add(a, b) {
+  return a + b;
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 606-607 | Added on Wednesday, 13 November 2024 22:28:17
+
+strictNullChecks controls whether null and undefined are permissible values in every type.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 607-618 | Added on Wednesday, 13 November 2024 22:28:34
+
+This code is valid when strictNullChecks is off: const x: number = null;  // OK, null is a valid number but triggers an error when you turn strictNullChecks on: const x: number = null;
+//    ~ Type 'null' is not assignable to type 'number'
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1445-1450 | Added on Friday, 15 November 2024 18:14:52
+
+When you install TypeScript, you get two executables: tsc, the TypeScript compiler tsserver, the TypeScript standalone server
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1451-1452 | Added on Friday, 15 November 2024 18:17:39
+
+the server is every bit as important because it provides language services.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1451-1452 | Added on Friday, 15 November 2024 18:17:47
+
+the server is every bit as important because it provides language services. These include autocomplete, inspection, navigation, and refactoring.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1585-1585 | Added on Friday, 15 November 2024 22:33:51
+
+/regex/
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1678-1679 | Added on Friday, 15 November 2024 22:44:51
+
+The & operator computes the intersection of two types.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1683-1696 | Added on Friday, 15 November 2024 22:45:06
+
+So a value that has the properties of both Person and Lifespan will belong to the intersection type: const ps: PersonSpan = {
+  name: 'Alan Turing',
+  birth: new Date('1912/06/23'),
+  death: new Date('1954/06/07'),
+};  // OK
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1667-1678 | Added on Friday, 15 November 2024 22:45:39
+
+interface Person {
+  name: string;
+}
+interface Lifespan {
+  birth: Date;
+  death?: Date;
+}
+type PersonSpan = Person & Lifespan;
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1699-1719 | Added on Friday, 15 November 2024 22:49:49
+
+type K = keyof (Person | Lifespan);  // Type is never There are no keys that TypeScript can guarantee belong to a value in the union type, so keyof for the union must be the empty set (never). Or, more formally: keyof (A&B) = (keyof A) | (keyof B)
+keyof (A|B) = (keyof A) & (keyof B)
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1889-1897 | Added on Friday, 15 November 2024 22:59:43
+
+You can sometimes subtract types using Exclude, but only when it would result in a proper TypeScript type: type T = Exclude<string|Date, string|number>;  // Type is Date
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1897-1902 | Added on Friday, 15 November 2024 22:59:55
+
+type NonZeroNums = Exclude<number, 0>;  // Type is still just number
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 1938-1944 | Added on Saturday, 16 November 2024 22:24:03
+
+A symbol in TypeScript exists in one of two spaces: Type space Value space
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2062-2063 | Added on Saturday, 16 November 2024 22:29:47
+
+typeof always operates on values. You can’t apply it to types.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2286-2299 | Added on Sunday, 17 November 2024 09:17:53
+
+So how do you use a type declaration in this context instead? The most straightforward way is to declare a variable in the arrow function: const people = ['alice', 'bob', 'jan'].map(name => {
+  const person: Person = {name};
+  return person
+}); // Type is Person[]
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2299-2310 | Added on Sunday, 17 November 2024 09:18:16
+
+But this introduces considerable noise compared to the original code. A more concise way is to declare the return type of the arrow function: const people = ['alice', 'bob', 'jan'].map(
+  (name): Person => ({name})
+); // Type is Person[]
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2329-2343 | Added on Sunday, 17 November 2024 09:20:16
+
+For instance, you may know the type of a DOM element more precisely than TypeScript does: document.querySelector('#myButton').addEventListener('click', e => {
+  e.currentTarget // Type is EventTarget
+  const button = e.currentTarget as HTMLButtonElement;
+  button // Type is HTMLButtonElement
+});
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2630-2639 | Added on Sunday, 17 November 2024 22:00:29
+
+why using an intermediate variable without a type annotation makes the error go away: const intermediate = { darkmode: true, title: 'Ski Free' };
+const o: Options = intermediate;  // OK
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2624-2630 | Added on Sunday, 17 November 2024 22:00:39
+
+const o: Options = { darkmode: true, title: 'Ski Free' };
+                  // ~~~~~~~~ 'darkmode' does not exist in type 'Options'...
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2581-2585 | Added on Sunday, 17 November 2024 22:01:00
+
+interface Options {
+  title: string;
+  darkMode?: boolean;
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2639-2641 | Added on Sunday, 17 November 2024 22:01:49
+
+While the righthand side of the first line is an object literal, the righthand side of the second line (intermediate) is not, so excess property checking does not apply, and the error goes away.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 2763-2792 | Added on Monday, 18 November 2024 21:57:34
+
+type BinaryFn = (a: number, b: number) => number;
+const add: BinaryFn = (a, b) => a + b;
+const sub: BinaryFn = (a, b) => a - b;
+const mul: BinaryFn = (a, b) => a * b;
+const div: BinaryFn = (a, b) => a / b; This has fewer type annotations than before, and they’re separated away from the function implementations. This makes the logic more apparent. You’ve also gained a check that the return type of all the function expressions is number.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3017-3028 | Added on Monday, 18 November 2024 22:03:20
+
+An interface can extend a type (with some caveats, explained momentarily), and a type can extend an interface: interface IStateWithPop extends TState {
+  population: number;
+}
+type TStateWithPop = IState & { population: number; };
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3029-3031 | Added on Monday, 18 November 2024 22:03:43
+
+The caveat is that an interface cannot extend a complex type like a union type. If you want to do that, you’ll need to use type and &.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3031-3048 | Added on Monday, 18 November 2024 22:04:06
+
+A class can implement either an interface or a simple type: class StateT implements TState {
+  name: string = '';
+  capital: string = '';
+}
+class StateI implements IState {
+  name: string = '';
+  capital: string = '';
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3074-3076 | Added on Monday, 18 November 2024 22:05:03
+
+A type is, in general, more capable than an interface. It can be a union, and it can also take advantage of more advanced features like mapped or conditional types.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3102-3119 | Added on Monday, 18 November 2024 22:06:05
+
+an interface can be augmented. Going back to the State example, you could have added a population field in another way: interface IState {
+  name: string;
+  capital: string;
+}
+interface IState {
+  population: number;
+}
+const wyoming: IState = {
+  name: 'Wyoming',
+  capital: 'Cheyenne',
+  population: 500_000
+};  // OK
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3119-3121 | Added on Monday, 18 November 2024 22:06:27
+
+This is known as “declaration merging,” and it’s quite surprising if you’ve never seen it before.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3338-3344 | Added on Tuesday, 19 November 2024 10:31:22
+
+You can also use the intersection operator (&) to extend an existing type, though this is less common: type PersonWithBirthDate = Person & { birth: Date };
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3365-3375 | Added on Tuesday, 19 November 2024 10:33:03
+
+You can remove duplication in the types of the properties by indexing into State: type TopNavState = {
+  userId: State['userId'];
+  pageTitle: State['pageTitle'];
+  recentFiles: State['recentFiles'];
+};
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3379-3389 | Added on Tuesday, 19 November 2024 10:33:26
+
+You can do better with a mapped type: type TopNavState = {
+  [k in 'userId' | 'pageTitle' | 'recentFiles']: State[k]
+}; Mousing over TopNavState shows that this definition is, in fact, exactly the same as the previous one
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3392-3403 | Added on Tuesday, 19 November 2024 10:34:05
+
+Mapped types are the type system equivalent of looping over the fields in an array. This particular pattern is so common that it’s part of the standard library, where it’s called Pick: type Pick<T, K> = { [k in K]: T[k] };
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 3550-3582 | Added on Tuesday, 19 November 2024 22:22:35
+
+How do you constrain the parameters in a generic type? You do so with extends. You can declare that any generic parameter extends a type. For example: interface Name {
+  first: string;
+  last: string;
+}
+type DancingDuo<T extends Name> = [T, T];
+
+const couple1: DancingDuo<Name> = [
+  {first: 'Fred', last: 'Astaire'},
+  {first: 'Ginger', last: 'Rogers'}
+];  // OK
+const couple2: DancingDuo<{first: string}> = [
+                       // ~~~~~~~~~~~~~~~
+                       // Property 'last' is missing in type
+                       // '{ first: string; }' but required in type 'Name'
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5016-5016 | Added on Saturday, 23 November 2024 20:18:50
+
+way a type can change is to narrow
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5023-5032 | Added on Saturday, 23 November 2024 20:19:06
+
+let id: string|number = "12-34-56";
+fetchProduct(id);
+
+id = 123456;  // OK
+fetchProductBySerialNumber(id);  // OK
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5161-5174 | Added on Saturday, 23 November 2024 20:29:36
+
+If you declare a variable with const instead of let, it gets a narrower type. In fact, using const fixes the error in our original example: const x = 'x';  // type is "x"
+let vec = {x: 10, y: 20, z: 30};
+getComponent(vec, x);  // OK
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5161-5177 | Added on Saturday, 23 November 2024 20:29:44
+
+If you declare a variable with const instead of let, it gets a narrower type. In fact, using const fixes the error in our original example: const x = 'x';  // type is "x"
+let vec = {x: 10, y: 20, z: 30};
+getComponent(vec, x);  // OK Because x cannot be reassigned, TypeScript is able to infer a narrower type without risk of inadvertently flagging errors on subsequent assignments. And because the string literal type "x" is assignable to "x"|"y"|"z", the code passes the type checker.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5178-5178 | Added on Saturday, 23 November 2024 20:30:06
+
+For objects and arrays, there is still ambiguity.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5247-5254 | Added on Saturday, 23 November 2024 20:33:57
+
+const v3 = {
+  x: 1,
+  y: 2,
+} as const;  // Type is { readonly x: 1; readonly y: 2; }
+==========
+Anything You Want 40 lessons for a new kind of entrepreneur, 3rd Edition (Derek Sivers) (Derek Sivers)
+- Your Highlight on page 23 | location 152-154 | Added on Sunday, 24 November 2024 15:53:22
+
+Never forget that absolutely everything you do is for your customers. Make every decision — even decisions about whether to expand the business, raise money, or promote someone — according to what’s best for your customers.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 5278-5298 | Added on Monday, 25 November 2024 22:28:48
+
+Item 22: Understand Type Narrowing The opposite of widening is narrowing. This is the process by which TypeScript goes from a broad type to a narrower one. Perhaps the most common example of this is null checking: const el = document.getElementById('foo'); // Type is HTMLElement | null
+if (el) {
+  el // Type is HTMLElement
+  el.innerHTML = 'Party Time'.blink();
+} else {
+  el // Type is null
+  alert('No element #foo');
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 8029-8068 | Added on Tuesday, 3 December 2024 14:32:53
+
+Underscore library calls this “pluck”: function pluck(records, key) {
+  return record.map(record => record[key]);
+} How would you type this? Here’s an initial attempt: function pluck(record: any[], key: string): any[] {
+  return record.map(r => r[key]);
+} This type checks but isn’t great. The any types are problematic, particularly on the return value (see Item 38). The first step to improving the type signature is introducing a generic type parameter: function pluck<T>(record: T[], key: string): any[] {
+  return record.map(r => r[key]);
+                      // ~~~~~~ Element implicitly has an 'any' type
+                      //        because type '{}' has no index signature
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 8029-8151 | Added on Tuesday, 3 December 2024 14:33:51
+
+Underscore library calls this “pluck”: function pluck(records, key) {
+  return record.map(record => record[key]);
+} How would you type this? Here’s an initial attempt: function pluck(record: any[], key: string): any[] {
+  return record.map(r => r[key]);
+} This type checks but isn’t great. The any types are problematic, particularly on the return value (see Item 38). The first step to improving the type signature is introducing a generic type parameter: function pluck<T>(record: T[], key: string): any[] {
+  return record.map(r => r[key]);
+                      // ~~~~~~ Element implicitly has an 'any' type
+                      //        because type '{}' has no index signature
+} TypeScript is now complaining that the string type for key is too broad. And it’s right to do so: if you pass in an array of Albums then there are only four valid values for key (“artist,” “title,” “releaseDate,” and “recordingType”), as opposed to the vast set of strings. This is precisely what the keyof Album type is: type K = keyof Album;
+// Type is "artist" | "title" | "releaseDate" | "recordingType" So the fix is to replace string with keyof T: function pluck<T>(record: T[], key: keyof T) {
+  return record.map(r => r[key]);
+} This passes the type checker. We’ve also let TypeScript infer the return type. How does it do? If you mouse over pluck in your editor, the inferred type is: function pluck<T>(record: T[], key: keyof T): T[keyof T][] T[keyof T] is the type of any possible value in T. If you’re passing in a single string as the key, this is too broad. For example: const releaseDates = pluck(albums, 'releaseDate'); // Type is (string | Date)[] The type should be Date[], not (string | Date)[]. While keyof T is much narrower than string, it’s still too broad. To narrow it further, we need to introduce a second generic parameter that is a subset of keyof T (probably a single value): function pluck<T, K extends keyof T>(record: T[], key: K): T[K][] {
+  return record.map(r => r[key]);
+} (For more on extends in this context, see Item 14.) The type signature is now completely correct. We can check this by calling pluck in a few different ways: pluck(albums, 'releaseDate'); // Type is Date[]
+pluck(albums, 'artist');  // Type is string[]
+pluck(albums, 'recordingType');  // Type is RecordingType[]
+pluck(albums, 'recordingDate');
+           // ~~~~~~~~~~~~~~~ Argument of type '"recordingDate"' is not
+           //                 assignable to parameter of type ... The language service is even able to offer autocomplete on the keys of Album (as shown in Figure 4-2). Figure 4-2. Using a parameter type of keyof Album instead of string results in better autocomplete in your editor. string has some of the same problems as any: when used inappropriately, it permits invalid values and hides relationships between types. This thwarts the type checker and can hide real bugs. TypeScript’s ability to define subsets of string is a powerful way to bring type safety to JavaScript code. Using more precise types will both catch errors and improve the readability of your code.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 9683-9752 | Added on Friday, 6 December 2024 23:16:48
+
+The unknown type is an alternative to any that does fit into the type system. It has the first property (any type is assignable to unknown) but not the second (unknown is only assignable to unknown and, of course, any). The never type is the opposite: it has the second property (can be assigned to any other type) but not the first (nothing can be assigned to never). Attempting to access a property on a value with the unknown type is an error. So is attempting to call it or do arithmetic with it. You can’t do much with unknown, which is exactly the point. The errors about an unknown type will encourage you to add an appropriate type: const book = safeParseYAML(`
+  name: Villette
+  author: Charlotte Brontë
+`) as Book;
+alert(book.title);
+        // ~~~~~ Property 'title' does not exist on type 'Book'
+book('read');
+// ~~~~~~~~~ this expression is not callable These errors are more sensible. Since unknown is not assignable to other types, a type assertion is required. But it is also appropriate: we really do know more about the type of the resulting object than TypeScript does. unknown is appropriate whenever you know that there will be a value but you don’t know its type. The result of parseYAML is one example, but there are others. In the GeoJSON spec, for example, the properties property of a Feature is a grab-bag of anything JSON serializable. So unknown makes sense: interface Feature {
+  id?: string | number;
+  geometry: Geometry;
+  properties: unknown;
+} A type assertion isn’t the only way to recover a type from an unknown object. An instanceof check will do: function processValue(val: unknown) {
+  if (val instanceof Date) {
+    val  // Type is Date
+  }
+} You can also use a user-defined type guard: function isBook(val: unknown): val is Book {
+  return (
+      typeof(val) === 'object' && val !== null &&
+      'name' in val && 'author' in val
+  );
+}
+function processValue(val: unknown) {
+  if (isBook(val)) {
+    val;  // Type is Book
+  }
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 9945-9948 | Added on Saturday, 7 December 2024 12:37:07
+
+There are many ways to do this, including the type-coverage package on npm: $ npx type-coverage
+9985 / 10117 98.69% This means that, of the 10,117 symbols in this project, 9,985 (98.69%) had a type other than any or an alias to any.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 9954-9957 | Added on Saturday, 7 December 2024 12:37:38
+
+Running type-coverage with the --detail flag will print where every any type occurs in your code: $ npx type-coverage --detail
+path/to/code.ts:1:10 getColumnInfo
+path/to/module.ts:7:1 pt2
+...
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 10221-10248 | Added on Saturday, 7 December 2024 18:47:28
+
+interface SecretSanta {
+  name: SecretName;
+  gift: string;
+}
+
+export function getGift(name: SecretName, gift: string): SecretSanta {
+  // ...
+} As a user of your module, I cannot directly import SecretName or SecretSanta, only getGift. But this is no barrier: because those types appear in an exported function signature, I can extract them. One way is to use the Parameters and ReturnType generic types: type MySanta = ReturnType<typeof getGift>;  // SecretSanta
+type MyName = Parameters<typeof getGift>[0];  // SecretName If your goal in not exporting these types was to preserve flexibility, then the jig is up! You’ve already committed to them by putting them in a public API. Do your users a favor and export them.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 10221-10246 | Added on Saturday, 7 December 2024 18:47:42
+
+interface SecretSanta {
+  name: SecretName;
+  gift: string;
+}
+
+export function getGift(name: SecretName, gift: string): SecretSanta {
+  // ...
+} As a user of your module, I cannot directly import SecretName or SecretSanta, only getGift. But this is no barrier: because those types appear in an exported function signature, I can extract them. One way is to use the Parameters and ReturnType generic types: type MySanta = ReturnType<typeof getGift>;  // SecretSanta
+type MyName = Parameters<typeof getGift>[0];  // SecretName
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 10325-10333 | Added on Saturday, 7 December 2024 18:49:59
+
+TSDoc comments are formatted using Markdown, so if you want to use bold, italic, or bulleted lists, you can (see Figure 6-5): /**
+ * This _interface_ has **three** properties:
+ * 1. x
+ * 2. y
+ * 3. z
+ */
+interface Vector3D {
+  x: number;
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 10333-10337 | Added on Saturday, 7 December 2024 18:50:16
+
+y: number;
+  z: number;
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 11324-11352 | Added on Sunday, 8 December 2024 18:29:34
+
+const obj = {
+  one: 'uno',
+  two: 'dos',
+  three: 'tres',
+};
+for (const k in obj) {
+  const v = obj[k];
+         // ~~~~~~ Element implicitly has an 'any' type
+         //        because type ... has no index signature
+} Inspecting the obj and k symbols gives a clue: const obj = { /* ... */ };
+// const obj: {
+//     one: string;
+//     two: string;
+//     three: string;
+// }
+for (const k in obj) {  // const k: string
+  // ...
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 11355-11367 | Added on Sunday, 8 December 2024 18:29:52
+
+Plugging in a narrower type declaration for k fixes the issue: let k: keyof typeof obj;  // Type is "one" | "two" | "three"
+for (k in obj) {
+  const v = obj[k];  // OK
+}
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 11446-11451 | Added on Sunday, 8 December 2024 18:33:07
+
+If you want to iterate over the keys and values in an object, use either a keyof declaration (let k: keyof T) or Object.entries. The former is appropriate for constants or other situations where you know that the object won’t have additional keys and you want precise types. The latter is more generally appropriate, though the key and value types are more difficult to work with.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 12029-12031 | Added on Sunday, 8 December 2024 22:33:44
+
+Figure 7-3. When a source map is present, you can work with the original TypeScript source in your debugger, rather than the generated JavaScript.
+==========
+Effective TypeScript (Dan Vanderkam) (Z-Library) (Dan Vanderkam)
+- Your Highlight at location 12525-12537 | Added on Sunday, 8 December 2024 22:38:41
+
+Here’s how it works: // @ts-check
+const person = {first: 'Grace', last: 'Hopper'};
+2 * person.first
+ // ~~~~~~~~~~~~ The right-hand side of an arithmetic operation must be of type
+ //              'any', 'number', 'bigint', or an enum type TypeScript infers the type of person.first as string, so 2 * person.first is a type error, no type annotations required.
+==========
