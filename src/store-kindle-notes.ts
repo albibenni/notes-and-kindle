@@ -30,7 +30,9 @@ export async function prettifyKindleNotes(
     if (allLines[i].toLowerCase().startsWith(bookT.toLowerCase())) {
       bookTitle = allLines[i];
       notes.push(" ");
+      // parse the notes having the book title correct and within the same block ==== - kindle format
       while (i < allLines.length && !allLines[i].startsWith("==========")) {
+        // avoid empty lines, kindle notes location and book title line, update iteration each time
         if (
           allLines[i].trim() === "" ||
           allLines[i].startsWith("- Your Highlight at location") ||
