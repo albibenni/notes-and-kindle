@@ -27,13 +27,23 @@ export async function prettifyKindleNotes(
   const allLines = file.split("\n");
   const notes: string[] = [];
   for (let i = 0; i < allLines.length; i++) {
-    if (allLines[i].startsWith("==========")) {
-      if (allLines[i - 4].toLowerCase().startsWith(bookT.toLowerCase())) {
-        bookTitle = allLines[i - 4];
-        notes.push(allLines[i - 1]);
-        notes.push(" ");
-        notes.push("---");
+    if (allLines[i].toLowerCase().startsWith(bookT.toLowerCase())) {
+      bookTitle = allLines[i];
+      notes.push(" ");
+      while (i < allLines.length && !allLines[i].startsWith("==========")) {
+        if (
+          allLines[i].trim() === "" ||
+          allLines[i].startsWith("- Your Highlight at location") ||
+          allLines[i].startsWith(bookTitle)
+        ) {
+          i++;
+          continue;
+        }
+        notes.push(allLines[i]);
+        i++;
       }
+      notes.push(" ");
+      notes.push("---");
     }
   }
   if (outputFile) {
@@ -84,7 +94,7 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
       throw new Error("Directory already exists");
     } else {
       await fs.mkdir(`${obsidianPath}/${dirName}/`);
-      exec(`sed -i '1i\ # ${nameMod}' temp.md`); // prettier-ignore
+      //exec(`sed -i '1i\ # ${nameMod}' temp.md`); // prettier-ignore
       exec(
         "pnpm run indent:write",
         async () =>
@@ -104,4 +114,4 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
 //   "make it stick",
 //   false,
 // );
-await storeInObsidian(clipping, "Building a Second Brain");
+await storeInObsidian(clipping, "Effective TypeScript");
