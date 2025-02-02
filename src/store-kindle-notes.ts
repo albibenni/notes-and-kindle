@@ -36,6 +36,7 @@ export async function prettifyKindleNotes(
         if (
           allLines[i].trim() === "" ||
           allLines[i].startsWith("- Your Highlight at location") ||
+          allLines[i].startsWith("- Your Highlight on page") ||
           allLines[i].startsWith(bookTitle)
         ) {
           i++;
@@ -116,4 +117,4 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
 //   "make it stick",
 //   false,
 // );
-await storeInObsidian(clipping, "Effective TypeScript");
+await storeInObsidian(clipping, "Ultralearning");

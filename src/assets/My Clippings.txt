@@ -763,3 +763,188 @@ const person = {first: 'Grace', last: 'Hopper'};
  // ~~~~~~~~~~~~ The right-hand side of an arithmetic operation must be of type
  //              'any', 'number', 'bigint', or an enum type TypeScript infers the type of person.first as string, so 2 * person.first is a type error, no type annotations required.
 ==========
+System Design Interview: An Insider's Guide (Alex Xu)
+- Your Highlight on page 8 | location 120-126 | Added on Thursday, 12 December 2024 14:41:31
+
+Advantages of database replication: •Better performance: In the master-slave model, all writes and updates happen in master nodes; whereas, read operations are distributed across slave nodes. This model improves performance because it allows more queries to be processed in parallel. •Reliability: If one of your database servers is destroyed by a natural disaster, such as a typhoon or an earthquake, data is still preserved. You do not need to worry about data loss because data is replicated across multiple locations. •High availability: By replicating data across different locations, your website remains in operation even if a database is offline as you can access data stored in another database server.
+==========
+Fit for Life (Harvey Diamond;Marilyn Diamond)
+- Your Highlight on page 26 | location 394-396 | Added on Saturday, 28 December 2024 19:01:04
+
+THE BASIC FOUNDATION OF NATURAL HYGIENE IS THAT THE BODY IS ALWAYS STRIVING FOR HEALTH AND THAT IT ACHIEVES THIS BY CONTINUOUSLY CLEANSING ITSELF OF DELETERIOUS WASTE MATERIAL.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 30 | location 459-463 | Added on Tuesday, 31 December 2024 20:46:15
+
+The first reason is for your work. You already expend much of your energy working to earn a living. In comparison, ultralearning is a small investment, even if you went so far as to temporarily make it a full-time commitment. However, rapidly learning hard skills can have a greater impact than years of mediocre striving on the job. Whether you want to change careers, take on new challenges, or accelerate your progress, ultralearning is a powerful tool. The
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 49 | location 751-751 | Added on Wednesday, 1 January 2025 23:14:57
+
+Metalearning
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 54 | location 817-820 | Added on Thursday, 2 January 2025 13:27:15
+
+metalearning is and its importance to learning faster, how can you apply this to get an edge in your own learning efforts? There are two main ways: over the short term and over the long term. Over the short term, you can do research to focus on improving your metalearning before and during a learning project. Ultralearning, owing to its intensity and self-directed nature, has the opportunity for a lot higher variance than normal schooling efforts do.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 55 | location 835-837 | Added on Thursday, 2 January 2025 13:30:34
+
+find it useful to break down metalearning research that you do for a specific project into three questions: “Why?,” “What?,” and “How?” “Why?” refers to understanding your motivation to learn. If you know exactly why you want to learn a skill or subject, you can save a lot of time by focusing your project on exactly what matters most to you.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 55 | location 835-841 | Added on Thursday, 2 January 2025 13:30:59
+
+find it useful to break down metalearning research that you do for a specific project into three questions: “Why?,” “What?,” and “How?” “Why?” refers to understanding your motivation to learn. If you know exactly why you want to learn a skill or subject, you can save a lot of time by focusing your project on exactly what matters most to you. “What?” refers to the knowledge and abilities you’ll need to acquire in order to be successful. Breaking things down into concepts, facts, and procedures can enable you to map out what obstacles you’ll face and how best to overcome them. “How?” refers to the resources, environment, and methods you’ll use when learning. Making careful choices here can make a big difference in your overall effectiveness. With these three questions in mind, let’s take a look at each of them and how you can draw your map.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 60 | location 920-921 | Added on Thursday, 2 January 2025 18:03:50
+
+Benchmarking The way to start any learning project is by finding the common ways in which people learn the skill or subject. This can help you design a default strategy as a starting point.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 60 | location 917-917 | Added on Thursday, 2 January 2025 18:03:55
+
+ANSWERING “HOW?”
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 61 | location 923-924 | Added on Thursday, 2 January 2025 18:04:38
+
+look at the curricula used in schools to teach that subject. This could be the syllabus from a single class or, as in the case of my MIT Challenge, the course list for an entire degree.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 61 | location 925-926 | Added on Thursday, 2 January 2025 18:05:21
+
+Good resources to consider for this approach are universities (MIT, Harvard, Yale, and Stanford are good examples but far from the only ones).
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 70 | location 1069-1071 | Added on Sunday, 5 January 2025 08:04:50
+
+You may find yourself starting but then, because the task is unpleasant and focus is hard, taking advantage of the five-minute rule too often to be productive. If this is the case and your problem has switched from being unable to get started to taking breaks too often, you can try something a little harder, say the Pomodoro Technique: twenty-five minutes of focus followed by a five-minute break.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 71 | location 1080-1082 | Added on Sunday, 5 January 2025 08:07:18
+
+If you find yourself setting a daily schedule with chunked hours and then frequently ignore it to do something else, go back to the start and try building back up again with the five-minute rule and then the Pomodoro Technique.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 94 | location 1433-1434 | Added on Tuesday, 7 January 2025 11:45:05
+
+The overkill approach is to put yourself into an environment where the demands are going to be extremely high, so you’re unlikely to miss any important lessons or feedback.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 94 | location 1440-1441 | Added on Tuesday, 7 January 2025 11:46:00
+
+One way you can overkill a project is to aim for a particular test, performance, or challenge that will be above the skill level you strictly require.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 106 | location 1619-1620 | Added on Tuesday, 7 January 2025 13:38:28
+
+It pays better to wait and recollect by an effort from within, than to look at the book again. —William James, psychologist
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 114 | location 1741-1744 | Added on Thursday, 9 January 2025 13:05:50
+
+For instance, a programmer may realize a need to use a certain function to solve a problem but forgets how to write it out. Needing to look up the syntax might slow her down, but she will still be able to solve the problem. However, if you don’t have enough knowledge stored to recognize when you can use a function to solve your problem, no looking up can help you.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 149 | location 2281-2285 | Added on Tuesday, 14 January 2025 15:44:38
+
+applying overlearning. The first is core practice, continually practicing and refining the core elements of a skill. This approach often works well paired with some kind of immersion or working on extensive (as opposed to intensive) projects, after the initial ultralearning phase has been completed. The shift from learning to doing here may actually involve a deeper, subtler form of learning, which shouldn’t be discounted as simply applying previously learned knowledge. The second strategy is advanced practice, going one level above a certain set of skills so that core parts of the lower-level skills are overlearned as one applies them in a more difficult domain.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 151 | location 2309-2309 | Added on Thursday, 16 January 2025 13:16:01
+
+to this topic, I highly recommend Joshua
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 151 | location 2309-2310 | Added on Thursday, 16 January 2025 13:16:09
+
+Joshua Foer’s book Moonwalking with Einstein: The Art and Science of Remembering Everything.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 161 | location 2457-2459 | Added on Friday, 17 January 2025 16:28:28
+
+One way you can introduce this into your own efforts is to give yourself a “struggle timer” as you work on problems. When you feel like giving up and that you can’t possibly figure out the solution to a difficult problem, try setting a timer for another ten minutes to push yourself a bit further.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 186 | location 2842-2842 | Added on Friday, 24 January 2025 13:11:52
+
+STEP 1: DO YOUR RESEARCH
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 187 | location 2858-2858 | Added on Friday, 24 January 2025 13:12:33
+
+benchmark for how others have successfully learned this skill or subject.
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 187 | location 2868-2868 | Added on Friday, 24 January 2025 13:13:00
+
+STEP 2: SCHEDULE YOUR TIME
+==========
+Ultralearning by Scott H. Young & the Intelligence Trap by David Robson 2 Books Collection Set (Scott H. Young;David Robson)
+- Your Highlight on page 190 | location 2903-2904 | Added on Friday, 24 January 2025 13:19:42
+
+You may notice that your plan relies too much on passive reading rather than retrieval practice.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 10 | location 85-86 | Added on Monday, 27 January 2025 22:58:12
+
+Armed with a simple pen and a sheet of paper, I sat down and wrote where I wanted to be in five years. Then, I set goals and took action every day to ensure I was making progress toward them.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 10 | location 84-84 | Added on Monday, 27 January 2025 22:58:22
+
+how valuable my time truly was.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 17 | location 161-162 | Added on Tuesday, 28 January 2025 15:43:38
+
+“What meaningful things do I need to work on today, this week, or this year to obtain the approval of my future self?”
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 22 | location 223-225 | Added on Tuesday, 28 January 2025 15:55:03
+
+Protect energy. Your energy is limited, and the best way to protect it is to increase the quality of your sleep, eat more healthily and exercise more regularly. When you fail to do so, your available energy decreases.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 25 | location 256-256 | Added on Wednesday, 29 January 2025 13:19:41
+
+you can also read book three in this series, Master Your Focus ,
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 41 | location 435-436 | Added on Thursday, 30 January 2025 13:22:59
+
+that some people procrastinate because they don’t have a sense of urgency pushing them to complete the job.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 41 | location 437-443 | Added on Thursday, 30 January 2025 13:23:50
+
+To create more urgency, you can take one or more of the following actions: Set a clear deadline. Choose a specific date that sounds realistic while still being somewhat challenging. This will create a sense of urgency. Install an accountability system. For instance, you can hire a coach or work with an accountability partner. Divide your projects into multiple milestones. This will make it less daunting. When Stephen King was asked how he writes, he replied, “One word at a time.” Similarly, the Great Wall of China was built one stone at a time. Measure your progress often. See how you fare in regard to your milestones. Are you behind? If so, what can you do to catch up? As the management consultant, Peter Drucker said, “What gets measured gets done.”
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 55 | location 579-580 | Added on Saturday, 1 February 2025 22:35:58
+
+To make each day more memorable, take a moment in the morning to acknowledge the day ahead of you. See it for what it is: life itself—not just another day.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 55 | location 584-585 | Added on Saturday, 1 February 2025 22:36:47
+
+Starting your day by expressing your gratitude is an excellent way to begin your new (micro)life.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 56 | location 592-595 | Added on Saturday, 1 February 2025 22:38:40
+
+Keeping a gratitude diary for two weeks reduces stress by twenty-eight percent and depression by sixteen percent in healthcare practitioners. Gratitude is related to twenty-three percent lower levels of stress hormones. Writing a letter of gratitude reduced feelings of hopelessness in eighty-eight percent of suicidal patients and increased levels of optimism in ninety-four percent of them.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 57 | location 604-605 | Added on Saturday, 1 February 2025 22:39:47
+
+Once you’ve acknowledged the gift of today, you need to spend time thinking of the best way to unwrap it.
+==========
+Master Your Time A Practical Guide to Increase Your Productivity and Use Your Time Meaningfully (Thibaut Meurisse) (Z-Library) (Thibaut Meurisse)
+- Your Highlight on page 61 | location 654-657 | Added on Saturday, 1 February 2025 22:49:29
+
+To slow down time, I encourage you to meditate for a few minutes before starting a task. I also invite you to take regular breaks to reinstate that condition by meditating, performing breathing exercises or listening to soothing music. Finally, when you work, practice moving slowly and deliberately.
+==========
