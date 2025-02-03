@@ -117,4 +117,4 @@ export async function storeInObsidian(path: PathLike, bookT: string) {
 //   "make it stick",
 //   false,
 // );
-await storeInObsidian(clipping, "Ultralearning");
+await storeInObsidian(clipping, "Master Your Time");
