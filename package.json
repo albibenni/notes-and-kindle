@@ -23,23 +23,23 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@eslint/eslintrc": "^3.1.0",
-    "@types/eslint": "^9.6.0",
-    "@types/node": "^22.8.1",
-    "@types/yargs": "^17.0.33",
-    "@typescript-eslint/parser": "^8.11.0",
-    "eslint": "^9.15.0",
-    "eslint-config-prettier": "^9.1.0",
+    "@eslint/eslintrc": "^3.3.0",
+    "@types/eslint": "^9.6.1",
     "@types/eslint-config-prettier": "^6.11.3",
-    "globals": "^15.11.0",
-    "prettier": "^3.3.3",
-    "typescript": "^5.6.3",
-    "typescript-eslint": "^8.11.0",
-    "vitest": "^2.1.4",
+    "@types/node": "^22.13.9",
+    "@types/yargs": "^17.0.33",
+    "@typescript-eslint/parser": "^8.26.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^9.1.0",
+    "globals": "^15.15.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.2",
+    "typescript-eslint": "^8.26.0",
+    "vitest": "^2.1.9",
     "yargs": "^17.7.2"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^16.4.7",
     "open": "^10.1.0"
   }
 }
