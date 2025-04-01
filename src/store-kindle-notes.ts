@@ -1,8 +1,6 @@
 import { exec } from "node:child_process";
 import type { PathLike } from "node:fs";
 import fs from "node:fs/promises";
-import dotenv from "dotenv";
-dotenv.config();
 
 const basePath = import.meta.dirname;
 const clipping = `${basePath}/assets/My Clippings.txt`;
